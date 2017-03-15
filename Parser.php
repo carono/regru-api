@@ -121,30 +121,37 @@ PHP;
 
     public static function processServiceConfigs()
     {
+        //$class->addComment("@see https://www.reg.ru/support/help/api2#service_create");
         $query = \phpQuery::newDocument(self::getDocContent());
+        $dir = 'config/service';
         foreach ($query->find('h5:contains("srv_"') as $h5) {
             $text = pq($h5)->text();
             preg_match("/\(([\w_]+)\)/", $text, $match);
             if (isset($match[1])) {
                 $srvName = $match[1];
-                Parser::processConingClass(self::formClassName($srvName) . 'Config', "h5:contains('$srvName')");
+                Parser::processConingClass(self::formClassName($srvName) . 'Config', "h5:contains('$srvName')", $dir);
             }
         }
     }
 
-    public static function processConingClass($className, $selector)
+    public static function processConingClass($className, $selector, $dir = DIRECTORY_SEPARATOR)
     {
         $html = file_get_contents('test.html');
         $query = \phpQuery::newDocument($html);
         $f = new PhpFile();
-        $f->addNamespace('carono\regru');
+        $namespace = rtrim(join('\\', preg_split("#[\\/]+#", $dir)), '\\');
+        $f->addNamespace('carono\regru' . ($namespace ? "\\" . $namespace : ''));
         $class = new ClassType(ucfirst($className));
-        $class->addExtend('BaseConfig');
+        $class->addExtend('\carono\regru\BaseConfig');
         if (strpos($selector, '#') === 0) {
             $class->addComment("@see https://www.reg.ru/support/help/api2$selector");
         }
         $required = [];
-        foreach ($query->find($selector)->nextAll('table')->eq(0)->find('tr') as $tr) {
+        $s = $query->find($selector);
+        if (strpos($s->htmlOuter(), '<h5>') !== false) {
+            $class->addComment($s->text());
+        }
+        foreach ($s->nextAll('table')->eq(0)->find('tr') as $tr) {
             $tr = pq($tr);
             if ($rawProperty = $tr->find('td')->eq(0)->text()) {
                 $property = self::clearParam($rawProperty);
@@ -162,7 +169,11 @@ PHP;
         if ($required) {
             $class->addProperty('required', $required);
         }
-        file_put_contents($className . '.php', $f . $class);
+        $classDirectory = rtrim(__DIR__ . DIRECTORY_SEPARATOR . $dir, DIRECTORY_SEPARATOR);
+        if (!is_dir($classDirectory)) {
+            mkdir($classDirectory, 0777, true);
+        }
+        file_put_contents($classDirectory . DIRECTORY_SEPARATOR . $className . '.php', $f . $class);
     }
 
     public function isDeprecatedParam($rawProperty, $description = null)
@@ -198,6 +209,11 @@ PHP;
     }
 
     protected static function formClassName($string)
+    {
+        return ucfirst(self::formMethodName($string));
+    }
+
+    protected static function formMethodName($string)
     {
         $array = array_map('ucfirst', preg_split("#[_/]+#", $string));
         $array[0] = lcfirst($array[0]);

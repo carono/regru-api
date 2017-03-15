@@ -16,6 +16,8 @@ class BaseConfig extends \ArrayObject
 
     public function getArrayCopy()
     {
-        return array_merge(get_object_vars($this), parent::getArrayCopy());
+        $array = array_merge(get_object_vars($this), parent::getArrayCopy());
+        unset($array['required']);
+        return $array;
     }
 }
