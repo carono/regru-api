@@ -1,7 +1,6 @@
 <?php
 namespace carono\regru\config\service;
 /**
- * @see https://www.reg.ru/support/help/api2#service_create
  * Конструктор сайтов Wix (srv_wix)
  */
 class SrvWixConfig extends \carono\regru\BaseConfig

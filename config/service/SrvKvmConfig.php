@@ -1,7 +1,6 @@
 <?php
 namespace carono\regru\config\service;
 /**
- * @see https://www.reg.ru/support/help/api2#service_create
  * KVM доступ (srv_kvm)
  */
 class SrvKvmConfig extends \carono\regru\BaseConfig

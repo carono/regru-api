@@ -1,7 +1,6 @@
 <?php
 namespace carono\regru\config\service;
 /**
- * @see https://www.reg.ru/support/help/api2#service_create
  * Выделенный сервер (srv_dedicated)
  * Выделенный сервер (srv_dedicated)
  */

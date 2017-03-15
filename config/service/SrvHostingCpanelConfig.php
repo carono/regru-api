@@ -1,7 +1,6 @@
 <?php
 namespace carono\regru\config\service;
 /**
- * @see https://www.reg.ru/support/help/api2#service_create
  * Хостинг Cpanel (srv_hosting_cpanel)
  * Cpanel хостинг (srv_hosting_cpanel)
  */

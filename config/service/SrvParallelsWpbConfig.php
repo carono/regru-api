@@ -1,7 +1,6 @@
 <?php
 namespace carono\regru\config\service;
 /**
- * @see https://www.reg.ru/support/help/api2#service_create
  * Конструктор сайтов Parallels Web Presence Builder (srv_parallels_wpb)
  */
 class SrvParallelsWpbConfig extends \carono\regru\BaseConfig

@@ -132,6 +132,8 @@ PHP;
                 Parser::processConingClass(self::formClassName($srvName) . 'Config', "h5:contains('$srvName')", $dir);
             }
         }
+        Parser::processConingClass(self::formClassName('srv_rs_joomla') . 'Config', "h5:contains('srv_rs_joomla')", $dir);
+        Parser::processConingClass(self::formClassName('srv_rs_wordpress') . 'Config', "h5:contains('srv_rs_wordpress')", $dir);
     }
 
     public static function processConingClass($className, $selector, $dir = DIRECTORY_SEPARATOR)

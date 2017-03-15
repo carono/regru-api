@@ -1,7 +1,6 @@
 <?php
 namespace carono\regru\config\service;
 /**
- * @see https://www.reg.ru/support/help/api2#service_create
  * Расширенная защита от спама (srv_antispam)
  * Расширенная защита от спама (srv_antispam)
  */

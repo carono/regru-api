@@ -1,7 +1,6 @@
 <?php
 namespace carono\regru\config\service;
 /**
- * @see https://www.reg.ru/support/help/api2#service_create
  * Дополнительный IP (srv_addip)
  */
 class SrvAddipConfig extends \carono\regru\BaseConfig
