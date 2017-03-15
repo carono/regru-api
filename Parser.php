@@ -5,8 +5,19 @@ use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpFile;
 use GuzzleHttp\Client;
 
+
 class Parser
 {
+    protected function requiredSort($data)
+    {
+        return !$data['required'];
+    }
+
+    protected function ucfirst_utf8($str)
+    {
+        return mb_substr(mb_strtoupper($str, 'utf-8'), 0, 1, 'utf-8') . mb_substr($str, 1, mb_strlen($str) - 1, 'utf-8');
+    }
+
     public static function processAbsClient()
     {
         $guzzle = new Client();
@@ -81,12 +92,12 @@ class Parser
             $array = array_map('ucfirst', preg_split("#[_/]+#", $api));
             $array[0] = lcfirst($array[0]);
 
-            uasort($value['request'], 'requiredSort');
+            uasort($value['request'], 'self::requiredSort');
             $method = join('', $array);
             $m = $class->addMethod($method)->addComment('');
 
 
-            $m->addComment(ucfirst_utf8($value['description']) . "\n");
+            $m->addComment(self::ucfirst_utf8($value['description']) . "\n");
             $m->addComment('@see ' . $value['source']);
             if ($value['example_url']) {
                 foreach ($value['example_url'] as $url) {
@@ -107,11 +118,9 @@ class Parser
             }
             $m->addComment("");
             $m->addComment('@return mixed');
-            $export = join(",\n\t", $params);
+            $export = self::arrayAsPhpVar($params);
             $body = <<<PHP
-\$params = [
-\t$export
-];
+\$params = $export;
 return \$this->request('$api', \$params);
 PHP;
             $m->setBody($body);
@@ -198,7 +207,7 @@ PHP;
     {
         $export = join(",\n\t", $array);
         if ($array) {
-            $result = "[\t$export]";
+            $result = "[\n\t$export\n]";
         } else {
             $result = "[]";
         }
@@ -221,14 +230,4 @@ PHP;
         $array[0] = lcfirst($array[0]);
         return join('', $array);
     }
-}
-
-function requiredSort($data)
-{
-    return !$data['required'];
-}
-
-function ucfirst_utf8($str)
-{
-    return mb_substr(mb_strtoupper($str, 'utf-8'), 0, 1, 'utf-8') . mb_substr($str, 1, mb_strlen($str) - 1, 'utf-8');
 }
