@@ -1,0 +1,23 @@
+{
+  "name": "carono/regru-api",
+  "description": "Reg.ru non-official api client",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "carono",
+      "email": "info@carono.ru"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^6.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "carono\\regru\\": ""
+    }
+  },
+  "require-dev": {
+    "electrolinux/phpquery": "^0.9.6",
+    "nette/php-generator": "^2.5"
+  }
+}
