@@ -1,9 +1,9 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Дополнительное дисковое пространство (srv_disk_space)
  */
-class SrvDiskSpaceConfig extends \carono\regru\BaseConfig
+class SrvDiskSpaceParam extends \carono\regru\BaseParam
 {
 	/** ID родительской услуги, к которой заказывается дополнительный IP. Заказ дополнительного IP возможен только для VPS (srv_vps). */
 	public $uplink_service_id;
@@ -14,6 +14,6 @@ class SrvDiskSpaceConfig extends \carono\regru\BaseConfig
 	 */
 	public $disk_size;
 
-	public $required = ['uplink_service_id', 'disk_size'];
+	public $required = ['disk_size'];
 
 }

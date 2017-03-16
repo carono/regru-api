@@ -1,13 +1,11 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Облачный хостинг Jelastic (srv_jelastic)
  */
-class SrvJelasticConfig extends \carono\regru\BaseConfig
+class SrvJelasticParam extends \carono\regru\BaseParam
 {
 	/** Email, к которому привязывается аккаунт Jelastic. */
 	public $email;
-
-	public $required = ['email'];
 
 }

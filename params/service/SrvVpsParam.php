@@ -1,10 +1,10 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * VPS сервер (srv_vps)
  * VPS (srv_vps)
  */
-class SrvVpsConfig extends \carono\regru\BaseConfig
+class SrvVpsParam extends \carono\regru\BaseParam
 {
 	/**
 	 * Тарифный план, сейчас доступны:
@@ -89,18 +89,5 @@ class SrvVpsConfig extends \carono\regru\BaseConfig
 
 	/** Указывается при использовании параметра "contype" со значением "org". Идентификационный номер налогоплательщика (ИНН), присвоенный организации-администратору. Запись может содержать пустую строку, если администратором является нерезидент РФ, не имеющий идентификационного номера налогоплательщика.Пример: 7701107259 */
 	public $code;
-
-	public $required = [
-		'subtype',
-		'vpsname',
-		'ostmpl',
-		'contype',
-		'email',
-		'country',
-		'person_r',
-		'passport',
-		'org_r',
-		'code',
-	];
 
 }

@@ -1,12 +1,17 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
- * Хостинг Cpanel (srv_hosting_cpanel)
- * Cpanel хостинг (srv_hosting_cpanel)
+ * ISPmanager хостинг (srv_hosting_ispmgr)
  */
-class SrvHostingCpanelConfig extends \carono\regru\BaseConfig
+class SrvHostingIspmgrParam extends \carono\regru\BaseParam
 {
-	/** Тарифный план, сейчас доступны: "Host-0", "Host-1", "Host-2", "Host-3-0413", "Host-CMS-0413", "Host-Unlim-D1", "Host-Unlim-D10", "Host-Unlim-D2", "Host-Unlim-D3", "Host-Unlim-D4", "Host-Unlim-D5", "Host-Unlim-D6", "Host-Unlim-D7", "Host-Unlim-D8", "Host-Unlim-D9". */
+	/**
+	 * @deprecated
+	 * Тарифный план, сейчас доступны: "Host-0-0910", "Host-1-1209", "Host-2-1209", "Host-3-0413", "Host-CMS-0413", "Host-Lite-0910", "Host-Unlim-D1", "Host-Unlim-D10", "Host-Unlim-D2", "Host-Unlim-D3", "Host-Unlim-D4", "Host-Unlim-D5", "Host-Unlim-D6", "Host-Unlim-D7", "Host-Unlim-D8", "Host-Unlim-D9", "Joomla-1-0113", "Joomla-2-0113", "Joomla-3-0113", "Joomla-4-0413", "Joomla-5-0413", "VIP-1-0815", "VIP-2-0815", "VIP-3-0815". Для указания тарифного плана рекомендуется использовать параметр "subtype"
+	 */
+	public $plan;
+
+	/** Тарифный план, сейчас доступны: "Host-0-0910", "Host-1-1209", "Host-2-1209", "Host-3-0413", "Host-CMS-0413", "Host-Lite-0910", "Host-Unlim-D1", "Host-Unlim-D10", "Host-Unlim-D2", "Host-Unlim-D3", "Host-Unlim-D4", "Host-Unlim-D5", "Host-Unlim-D6", "Host-Unlim-D7", "Host-Unlim-D8", "Host-Unlim-D9", "Joomla-1-0113", "Joomla-2-0113", "Joomla-3-0113", "Joomla-4-0413", "Joomla-5-0413", "VIP-1-0815", "VIP-2-0815", "VIP-3-0815". Для указания тарифного плана рекомендуется использовать параметр "subtype" */
 	public $subtype;
 
 	/** Тип контактных данных. Принимает значение "hosting_pp" при регистрации сервера на данные физического лица и значение "hosting_org" при регистрации сервера на данные юридического лица. */
@@ -38,16 +43,5 @@ class SrvHostingCpanelConfig extends \carono\regru\BaseConfig
 
 	/** Указывается при использовании параметра "contype" со значением "hosting_org". Идентификационный номер налогоплательщика (ИНН), присвоенный организации-администратору. Запись может содержать пустую строку, если администратором является нерезидент РФ, не имеющий идентификационного номера налогоплательщика.Пример: 7701107259 */
 	public $code;
-
-	public $required = [
-		'subtype',
-		'contype',
-		'email',
-		'country',
-		'person_r',
-		'passport',
-		'org_r',
-		'code',
-	];
 
 }

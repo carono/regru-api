@@ -1,10 +1,10 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Сертификат SSL (srv_ssl_certificate)
  * Сертификат SSL (srv_ssl_certificate)
  */
-class SrvSslCertificateConfig extends \carono\regru\BaseConfig
+class SrvSslCertificateParam extends \carono\regru\BaseParam
 {
 	/**
 	 * Название, имя, фамилия, адрес, город, штат(провинция), почтовый индекс, страна, телефон, факс организации.
@@ -71,7 +71,5 @@ class SrvSslCertificateConfig extends \carono\regru\BaseConfig
 	 * comodo_ev, comodo_instantssl, comodo_premiumssl, comodo_premiumssl_wildcard, comodo_ssl, comodo_wildcard
 	 */
 	public $subtype;
-
-	public $required = ['approver_email', 'server_type', 'csr_string', 'subtype'];
 
 }

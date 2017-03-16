@@ -2,10 +2,10 @@
 
 namespace carono\regru;
 /**
- * Class BaseConfig
+ * Class BaseParam
  * @package carono\regru
  */
-class BaseConfig extends \ArrayObject
+class BaseParam extends \ArrayObject
 {
     public $required = [];
 

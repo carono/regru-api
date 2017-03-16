@@ -1,9 +1,9 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Сертификат на домен (srv_certificate)
  */
-class SrvCertificateConfig extends \carono\regru\BaseConfig
+class SrvCertificateParam extends \carono\regru\BaseParam
 {
 	/**
 	 * способ получения сертификата:
@@ -51,21 +51,5 @@ class SrvCertificateConfig extends \carono\regru\BaseConfig
 
 	/** Код страны (например UK) */
 	public $a_country_code;
-
-	public $required = [
-		'obtain_cert',
-		'office',
-		'phone',
-		'remark',
-		'p_postcode',
-		'p_addr',
-		'p_name',
-		'a_postcode',
-		'a_addr',
-		'a_name',
-		'a_state',
-		'a_city',
-		'a_country_code',
-	];
 
 }

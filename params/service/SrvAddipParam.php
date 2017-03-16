@@ -1,9 +1,9 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Дополнительный IP (srv_addip)
  */
-class SrvAddipConfig extends \carono\regru\BaseConfig
+class SrvAddipParam extends \carono\regru\BaseParam
 {
 	/** ID родительской услуги, к которой заказывается дополнительный IP. Заказ дополнительного IP возможен только для VPS (srv_vps), ISPmanager хостинга (srv_hosting_ispmgr) и CPanel хостинга (srv_hosting_cpanel). */
 	public $uplink_service_id;
@@ -16,6 +16,6 @@ class SrvAddipConfig extends \carono\regru\BaseConfig
 	 */
 	public $subtype;
 
-	public $required = ['uplink_service_id', 'subtype'];
+	public $required = ['subtype'];
 
 }

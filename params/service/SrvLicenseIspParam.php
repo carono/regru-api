@@ -1,9 +1,9 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Лицензия ISP Manager (srv_license_isp)
  */
-class SrvLicenseIspConfig extends \carono\regru\BaseConfig
+class SrvLicenseIspParam extends \carono\regru\BaseParam
 {
 	/** ID родительской услуги, к которой заказывается лицензия ISP Manager. Заказ лицензии возможен только для VPS (srv_vps). */
 	public $uplink_service_id;
@@ -32,7 +32,5 @@ class SrvLicenseIspConfig extends \carono\regru\BaseConfig
 	 * ubuntu-x86_64
 	 */
 	public $ostmpl;
-
-	public $required = ['uplink_service_id'];
 
 }

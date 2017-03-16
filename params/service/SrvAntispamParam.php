@@ -1,10 +1,10 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Расширенная защита от спама (srv_antispam)
  * Расширенная защита от спама (srv_antispam)
  */
-class SrvAntispamConfig extends \carono\regru\BaseConfig
+class SrvAntispamParam extends \carono\regru\BaseParam
 {
 	/** ID родительской услуги, к которой заказывается расширенная защита от спама. Заказ расширенной защиты от спама возможен для домена (domain), ISPmanager хостинга (srv_hosting_ispmgr), CPanel хостинга (srv_hosting_cpanel) и Plesk хостинга (srv_hosting_plesk). */
 	public $uplink_service_id;
@@ -24,7 +24,5 @@ class SrvAntispamConfig extends \carono\regru\BaseConfig
 
 	/** Список MX серверов через запятую, используемых для транспорта отфильтрованной почты. */
 	public $mx_list;
-
-	public $required = ['uplink_service_id', 'mx_list'];
 
 }

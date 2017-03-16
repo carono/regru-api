@@ -1,10 +1,10 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Парковка (srv_parking)
  * Парковка (srv_parking)
  */
-class SrvParkingConfig extends \carono\regru\BaseConfig
+class SrvParkingParam extends \carono\regru\BaseParam
 {
 	/** Заголовок страницы. Просто элемент оформления шаблона. */
 	public $title;
@@ -104,22 +104,5 @@ class SrvParkingConfig extends \carono\regru\BaseConfig
 
 	/** Необязательный. Для бесплатной парковки следует указать значение free */
 	public $subtype;
-
-	public $required = [
-		'title',
-		'content',
-		'counter_html_code',
-		'template_name',
-		'html_title',
-		'html_description',
-		'html_keywords',
-		'opt_user_contacts',
-		'opt_feedback_link',
-		'opt_domain_shop_link',
-		'opt_whois_link',
-		'opt_se_link',
-		'opt_indexed_link',
-		'opt_blogs_link',
-	];
 
 }

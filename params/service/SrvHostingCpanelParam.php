@@ -1,26 +1,13 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
- * Готовые решения на основе популярных CMS ( srv_rs_joomla и srv_rs_wordpress )
+ * Хостинг Cpanel (srv_hosting_cpanel)
+ * Cpanel хостинг (srv_hosting_cpanel)
  */
-class SrvRsJoomlaConfig extends \carono\regru\BaseConfig
+class SrvHostingCpanelParam extends \carono\regru\BaseParam
 {
-	/**
-	 * Тарифный план.
-	 * Для готовых решений на основе Joomla доступны следующие тарифные планы:
-	 * corporate
-	 * eCommerce
-	 * Для готовых решений на основе Wordpress доступны следующие тарифные планы:
-	 * blog
-	 * corporate
-	 * eCommerce
-	 * ecwid
-	 * portfolio
-	 */
+	/** Тарифный план, сейчас доступны: "Host-0", "Host-1", "Host-2", "Host-3-0413", "Host-CMS-0413", "Host-Unlim-D1", "Host-Unlim-D10", "Host-Unlim-D2", "Host-Unlim-D3", "Host-Unlim-D4", "Host-Unlim-D5", "Host-Unlim-D6", "Host-Unlim-D7", "Host-Unlim-D8", "Host-Unlim-D9". */
 	public $subtype;
-
-	/** Тема. Список доступных тем можно получить, используя функцию "hosting/get_rs_themes", указав параметры "servtype" и "subtype". */
-	public $theme;
 
 	/** Тип контактных данных. Принимает значение "hosting_pp" при регистрации сервера на данные физического лица и значение "hosting_org" при регистрации сервера на данные юридического лица. */
 	public $contype;
@@ -51,17 +38,5 @@ class SrvRsJoomlaConfig extends \carono\regru\BaseConfig
 
 	/** Указывается при использовании параметра "contype" со значением "hosting_org". Идентификационный номер налогоплательщика (ИНН), присвоенный организации-администратору. Запись может содержать пустую строку, если администратором является нерезидент РФ, не имеющий идентификационного номера налогоплательщика.Пример: 7701107259 */
 	public $code;
-
-	public $required = [
-		'subtype',
-		'theme',
-		'contype',
-		'email',
-		'country',
-		'person_r',
-		'passport',
-		'org_r',
-		'code',
-	];
 
 }

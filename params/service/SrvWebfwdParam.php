@@ -1,9 +1,9 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Web-форвардинг (srv_webfwd)
  */
-class SrvWebfwdConfig extends \carono\regru\BaseConfig
+class SrvWebfwdParam extends \carono\regru\BaseParam
 {
 	/**
 	 * Действия, доступны:
@@ -58,16 +58,5 @@ class SrvWebfwdConfig extends \carono\regru\BaseConfig
 
 	/** Favicon для переадресаций, имеет смысл только в случае использования маскировки адреса во фрейме. Допускается только картинка в формате PNG закодированная в Base64. Исходный размер картинки 16x16 пикселей и не более 1536 байт. Используется совместно с параметром subtask = add_favicon */
 	public $favicon;
-
-	public $required = [
-		'fwd_action',
-		'subtask',
-		'fwdfrom',
-		'fwdto',
-		'allow_se_indexing',
-		'webfwd_type',
-		'title',
-		'favicon',
-	];
 
 }

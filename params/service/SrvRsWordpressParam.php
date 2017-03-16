@@ -1,9 +1,9 @@
 <?php
-namespace carono\regru\config\service;
+namespace carono\regru\params\service;
 /**
  * Готовые решения на основе популярных CMS ( srv_rs_joomla и srv_rs_wordpress )
  */
-class SrvRsWordpressConfig extends \carono\regru\BaseConfig
+class SrvRsWordpressParam extends \carono\regru\BaseParam
 {
 	/**
 	 * Тарифный план.
@@ -51,17 +51,5 @@ class SrvRsWordpressConfig extends \carono\regru\BaseConfig
 
 	/** Указывается при использовании параметра "contype" со значением "hosting_org". Идентификационный номер налогоплательщика (ИНН), присвоенный организации-администратору. Запись может содержать пустую строку, если администратором является нерезидент РФ, не имеющий идентификационного номера налогоплательщика.Пример: 7701107259 */
 	public $code;
-
-	public $required = [
-		'subtype',
-		'theme',
-		'contype',
-		'email',
-		'country',
-		'person_r',
-		'passport',
-		'org_r',
-		'code',
-	];
 
 }
